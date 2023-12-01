@@ -22,8 +22,9 @@ cap = cv2.VideoCapture(0)  # 调用电脑摄像头
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #基于TCP
 # client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) #基于UDP
 client.connect(('127.0.0.1', 9999))
-# msg = client.recv(1024)
-# print('New message from server: %s' % msg.decode('utf-8'))
+
+msg = client.recv(1024)
+print('来自服务端: %s' % msg.decode('utf-8'))
 
 detector = pm.poseDetector()
 strdata = ""  # 定义字符串变量
